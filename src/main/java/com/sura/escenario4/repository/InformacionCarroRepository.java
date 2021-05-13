@@ -5,6 +5,7 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
 
 public interface InformacionCarroRepository extends ReactiveCrudRepository<InformacionCarro, String> {
-    Flux<InformacionCarro> findAllByPlacaIsLike(String placa);
+    Flux<InformacionCarro> findAllByPlacaIsLikeIgnoreCase(String placa);
+    Flux<InformacionCarro> findAllByMarcaLikeIgnoreCase(String marca);
 
 }

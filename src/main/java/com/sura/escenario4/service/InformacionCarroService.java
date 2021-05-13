@@ -28,12 +28,16 @@ public class InformacionCarroService implements  InformacionCarroServiceInterfac
                     car.setModelo(car.getModelo().toUpperCase(Locale.ROOT));
                   return car;
                 });
-                //.switchIfEmpty(Mono.error(new IllegalArgumentException("The car information is required")));
     }
 
     @Override
     public Flux<InformacionCarro> findByPlacaLike(String placa) {
-        return carroRepository.findAllByPlacaIsLike(placa);
+        return carroRepository.findAllByPlacaIsLikeIgnoreCase(placa);
                 //.switchIfEmpty(Mono.error(new IllegalArgumentException("There are not car information with that placa")));
+    }
+
+    @Override
+    public Flux<InformacionCarro> findByMarcaLike(String marca) {
+        return carroRepository.findAllByMarcaLikeIgnoreCase(marca);
     }
 }

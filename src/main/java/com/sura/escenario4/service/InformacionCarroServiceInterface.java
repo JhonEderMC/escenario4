@@ -7,4 +7,5 @@ import reactor.core.publisher.Mono;
 public interface InformacionCarroServiceInterface {
     Mono<InformacionCarro> save(InformacionCarro carro);
     Flux<InformacionCarro> findByPlacaLike(String placa);
+    Flux<InformacionCarro> findByMarcaLike(String marca);
 }
