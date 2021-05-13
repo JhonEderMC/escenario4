@@ -1,12 +1,13 @@
 package com.sura.escenario4.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Locale;
 
 @Document
 public class InformacionCarro {
-
+    @Id
     private  String placa;
     private String marca;
     private String modelo;
