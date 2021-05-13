@@ -32,7 +32,7 @@ public class InformacionCarroService implements  InformacionCarroServiceInterfac
 
     @Override
     public Mono<Void> delete(String placa) {
-        return carroRepository.deleteById(placa);
+        return carroRepository.deleteById(placa.toUpperCase());
     }
 
     @Override
