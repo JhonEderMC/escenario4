@@ -2,6 +2,8 @@ package com.sura.escenario4.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Locale;
+
 @Document
 public class InformacionCarro {
 
@@ -15,7 +17,7 @@ public class InformacionCarro {
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        this.placa = placa.toUpperCase(Locale.ROOT);
     }
 
     public String getMarca() {
@@ -23,7 +25,7 @@ public class InformacionCarro {
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        this.marca = marca.toUpperCase(Locale.ROOT);
     }
 
     public String getModelo() {
@@ -31,7 +33,7 @@ public class InformacionCarro {
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        this.modelo = modelo.toUpperCase(Locale.ROOT);
     }
 
     public Conductor getConductor() {
