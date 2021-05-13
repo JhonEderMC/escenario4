@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Locale;
+
 @RestController
 @RequestMapping("/carinfo")
 public class InformacionCarroController {
@@ -20,8 +22,13 @@ public class InformacionCarroController {
     }
 
     @GetMapping("/placa/{placa}")
-    Flux<InformacionCarro> findByPlacaLike(@PathVariable("placa") String placa){
-        return carroService.findByPlacaLike(placa.toUpperCase());
+    Flux<InformacionCarro> findByPlaca(@PathVariable("placa") String placa){
+        return carroService.findByPlacaLike(placa);
+    }
+
+    @GetMapping("/marca/{marca}")
+    Flux<InformacionCarro> findByMarca(@PathVariable("marca") String marca){
+        return carroService.findByMarcaLike(marca);
     }
 
     @PostMapping
