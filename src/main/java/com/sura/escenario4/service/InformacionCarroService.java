@@ -31,6 +31,11 @@ public class InformacionCarroService implements  InformacionCarroServiceInterfac
     }
 
     @Override
+    public Mono<Void> delete(String placa) {
+        return carroRepository.deleteById(placa);
+    }
+
+    @Override
     public Flux<InformacionCarro> findByPlacaLike(String placa) {
         return carroRepository.findAllByPlacaIsLikeIgnoreCase(placa);
                 //.switchIfEmpty(Mono.error(new IllegalArgumentException("There are not car information with that placa")));
